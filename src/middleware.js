@@ -1,16 +1,13 @@
-import querystring from 'querystring';
-import url from 'url';
-import { GO, NAVIGATE, ACTION_PREFIX, replace } from './actions';
+import { parseHref } from 'rrrouter-history';
+import { GO, NAVIGATE, ROUTER_ACTION, replace } from './actions';
 
 export default function createMiddleware(history) {
 	return store => {
 		if (history) {
-			history.listen({
-				replace: (href) => store.dispatch(replace(href))
-			});
+			history.subscribe((href) => store.dispatch(replace(href)));
 		}
 
-		const routerAction = new RegExp(`^${ACTION_PREFIX}`);
+		const routerAction = new RegExp(`^${ROUTER_ACTION}`);
 
 		return next => action => {
 			if (!routerAction.test(action.type)) {
@@ -21,24 +18,9 @@ export default function createMiddleware(history) {
 				return history.go(action.page);
 			}
 
-			const parsed = url.parse(action.href);
-
-			const location = {
-				hash: parsed.hash || undefined,
-				pathname: parsed.pathname,
-				search: parsed.search || undefined,
-			};
-
-			let query;
-			if(parsed.query) {
-				query = querystring.parse(parsed.query);
-			}
-
 			const result = next({
 				...action,
-				query,
-				location,
-				href: url.format(location),
+				...parseHref(action.href),
 			});
 
 			if (history) {

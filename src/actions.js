@@ -1,7 +1,7 @@
-export const ACTION_PREFIX = '@@rrrouter';
-export const GO = `${ACTION_PREFIX}/go`;
-export const REPLACE = `${ACTION_PREFIX}/replace`;
-export const NAVIGATE = `${ACTION_PREFIX}/navigate`;
+export const ROUTER_ACTION = '@@rrrouter';
+export const GO = `${ROUTER_ACTION}/go`;
+export const REPLACE = `${ROUTER_ACTION}/replace`;
+export const NAVIGATE = `${ROUTER_ACTION}/navigate`;
 
 export function replace (href) {
 	return { type: REPLACE, href };

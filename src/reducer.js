@@ -1,5 +1,6 @@
-import { ACTION_PREFIX } from './actions';
-const routerAction = new RegExp(`^${ACTION_PREFIX}`);
+import { ROUTER_ACTION } from './actions';
+
+const routerAction = new RegExp(`^${ROUTER_ACTION}`);
 
 export default function reducer (state = { }, action) {
 	if (!routerAction.test(action.type)) {
