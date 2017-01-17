@@ -1,6 +1,6 @@
 {
   "name": "rrrouter-provider-redux",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Redux support for rrrouter",
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
@@ -44,7 +44,7 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "rimraf": "^2.5.4",
-	"rrrouter": "1.x",
-	"rrrouter-history": "1.x"
+    "rrrouter": "1.x",
+    "rrrouter-history": "1.x"
   }
 }
