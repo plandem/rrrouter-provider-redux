@@ -12,10 +12,10 @@ npm install --save rrrouter-provider-redux
 
 | Action         | Description              |
 |----------------|--------------------------|
-| navigate(href) | Navigate to desired href |
-| go(page)       | move forward/backward in browser history, where **page** is number of pages to move. |
-| back()         | move backward - alias for go(-1) |
-| forward()      | move forward - alias for go(+1) |
+| navigate(href) | Navigate to desired href, where **href** is string of location to navigate |
+| go(page)       | Move forward/backward in browser history, where **page** is number of pages to move. |
+| back()         | Move backward - alias for go(-1) |
+| forward()      | Move forward - alias for go(+1) |
 
 
 
@@ -36,7 +36,12 @@ export default function myReducer (state = { }, action) {
 ```
 
 ###Provider
-stateKey - name of reducer that you used
+
+| Property   | Description    | Type             | Default       |
+|------------|----------------|------------------|---------------|
+| stateKey   | Name of reducer that you used | String | no |
+| initHref   | Initial href that will be used at startup | String | no |
+
 
 #Usage
 1. Setup middleware
