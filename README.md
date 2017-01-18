@@ -1,10 +1,37 @@
 #Purpose
-Implementation of Provider for [rrrouter](https://github.com/plandem/rrrouter) with [redux](https://github.com/reactjs/redux) support.
+Implementation of Provider for [rrrouter](https://github.com/plandem/rrrouter) with [redux](https://github.com/reactjs/redux) support and [rrrouter-history](https://github.com/plandem/rrrouter-history) as history session manager.
 
 #Installation
 ```
 npm install --save rrrouter-provider-redux
 ```
+
+#API
+###Actions
+navigate (href) - navigate to desired href.
+go(page) - move forward/backward in browser history.
+back() - alias for go(-1)
+forward() - alias for go(+1)
+
+P.S.: All actions has prefix that you can get via ROUTER_ACTION, so you can test type of action and do what you need at own reducer/middleware.
+E.g.
+```js
+import { ROUTER_ACTION } from 'rrrouter-provider-redux';
+
+const routerAction = new RegExp(`^${ROUTER_ACTION}`);
+
+export default function myReducer (state = { }, action) {
+	if (!routerAction.test(action.type)) {
+		return state;
+	}
+
+	....do something in case of router action....
+	return newState;
+}
+```
+
+###Provider
+stateKey - name of reducer that you used
 
 #Usage
 1. Setup middleware
