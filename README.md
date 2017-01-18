@@ -8,10 +8,14 @@ npm install --save rrrouter-provider-redux
 
 #API
 ###Actions
-navigate (href) - navigate to desired href.
-go(page) - move forward/backward in browser history.
-back() - alias for go(-1)
-forward() - alias for go(+1)
+**navigate (href)** - navigate to desired href.
+
+**go(page)** - move forward/backward in browser history, where **page** is number of pages to move.
+
+**back()** - alias for go(-1)
+
+**forward()** - alias for go(+1)
+
 
 P.S.: All actions has prefix that you can get via ROUTER_ACTION, so you can test type of action and do what you need at own reducer/middleware.
 E.g.
