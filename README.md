@@ -35,7 +35,7 @@ export default function myReducer (state = { }, action) {
 }
 ```
 
-**N.B.:** __In most cases you will not use these actions directly, because all that you need - use methods of Router to navigate. Consider this actions as low-level implementation **for** Router and nothing more.__
+**N.B.:** _In most cases you will not use these actions directly, because all that you need - use methods of Router to navigate. Consider this actions as low-level implementation **for** Router and nothing more._
 
 ###Provider
 
