@@ -10,6 +10,10 @@ export default function createMiddleware(history) {
 		const routerAction = new RegExp(`^${ROUTER_ACTION}`);
 
 		return next => action => {
+			if(!action) {
+				return;
+			}
+
 			if (!routerAction.test(action.type)) {
 				return next(action);
 			}
