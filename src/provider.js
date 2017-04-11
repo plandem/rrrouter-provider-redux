@@ -1,4 +1,4 @@
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Provider } from 'rrrouter';
 import { go, back, forward, navigate } from './actions';
